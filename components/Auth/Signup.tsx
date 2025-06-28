@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { useActionState } from "react";
@@ -34,23 +33,7 @@ const Signup = () => {
             />
           </div>
 
-          <motion.div
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -20,
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 1, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="animate_top shadow-solid-8 dark:border-strokedark rounded-lg bg-white px-7.5 pt-7.5 xl:px-15 xl:pt-15 dark:border dark:bg-black"
-          >
+          <div className="animate_top shadow-solid-8 dark:border-strokedark rounded-lg bg-white px-7.5 pt-7.5 xl:px-15 xl:pt-15 dark:border dark:bg-black">
             <h2 className="xl:text-sectiontitle2 mb-15 text-center text-3xl font-semibold text-black dark:text-white">
               Create an Account
             </h2>
@@ -219,7 +202,7 @@ const Signup = () => {
                 </p>
               </div>
             </form>
-          </motion.div>
+          </div>
         </div>
       </section>
       {/* <!-- ===== SignUp Form End ===== --> */}

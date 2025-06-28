@@ -12,6 +12,8 @@ import Contact from "@/components/LandingPage/Contact";
 import Integration from "@/components/LandingPage/Integration";
 import Testimonial from "@/components/LandingPage/Testimonial/Testimonial";
 import React from "react";
+import { DemoVideo } from "@/components/LandingPage/DemoVideo";
+import HowItWorks from "@/components/LandingPage/HowItWorks";
 
 export const metadata: Metadata = {
   title: "Rekon - Bank Statement Matcher",
@@ -23,17 +25,13 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Brands />
-      <Feature />
+      <HowItWorks />
+      <DemoVideo />
       <About />
-      <FeaturesTab />
-      <FunFact />
-      <Integration />
       <CTA />
       <FAQ />
       <Testimonial />
       <Pricing />
-      <Contact />
     </main>
   );
 }
