@@ -155,14 +155,14 @@ const Header = () => {
             <ThemeToggler />
 
             <Link
-              href="/auth/signin"
+              href="/signin"
               className="text-regular text-waterloo hover:text-primary font-medium"
             >
               Sign in
             </Link>
 
             <Link
-              href="/auth/signup"
+              href="/signup"
               className="bg-primary text-regular hover:bg-primaryho flex items-center justify-center rounded-full px-7.5 py-2.5 text-white duration-300 ease-in-out"
             >
               Sign up

@@ -1,15 +1,17 @@
-"use client";
-
-import Footer from "@/components/LandingPage/Footer";
-import Header from "@/components/Header/Header";
-import Lines from "@/components/LandingPage/Lines";
-import ScrollToTop from "@/components/LandingPage/ScrollToTop";
-import { ThemeProvider } from "next-themes";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Providers from "@/components/Providers";
+import ToasterContext from "./context/ToastContext";
+import LayoutWrapper from "@/components/LayoutWrapper";
+
 const inter = Inter({ subsets: ["latin"] });
 
-import ToasterContext from "./context/ToastContext";
+export const metadata: Metadata = {
+  title: "Rekon - Bank Statement Matcher",
+  description:
+    "Upload and match transactions between credit card and bank account statements",
+};
 
 export default function RootLayout({
   children,
@@ -19,14 +21,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`dark:bg-black ${inter.className}`}>
-        <ThemeProvider
-          enableSystem={true}
-          attribute="class"
-          defaultTheme="light"
-        >
+        <Providers>
           <ToasterContext />
-          {children}
-        </ThemeProvider>
+          <LayoutWrapper>
+            {children}
+          </LayoutWrapper>
+        </Providers>
       </body>
     </html>
   );
