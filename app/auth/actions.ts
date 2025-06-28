@@ -8,11 +8,10 @@ export type AuthState = {
   error?: string | null;
 } | null;
 
-export async function signInWithEmail(
+export async function signUpWithEmail(
   prevState: AuthState,
   formData: FormData,
 ): Promise<AuthState> {
-  const cookieStore = cookies();
   const supabase = await createClient();
 
   // type-casting here for convenience
@@ -20,9 +19,17 @@ export async function signInWithEmail(
   const data = {
     email: formData.get("email") as string,
     password: formData.get("password") as string,
+    options: {
+      data: {
+        first_name: formData.get("firstName") as string,
+        last_name: formData.get("lastName") as string,
+      },
+    },
   };
 
-  const { error } = await supabase.auth.signInWithPassword(data);
+  const { data: signUpData, error } = await supabase.auth.signUp(data);
+  console.log("Sign up error is", error);
+  console.log("Sign up data is", signUpData);
 
   if (error) {
     return {
@@ -34,7 +41,38 @@ export async function signInWithEmail(
   redirect("/dashboard");
 }
 
-export async function signInWithGoogle() {
+export async function signInWithEmail(
+  prevState: AuthState,
+  formData: FormData,
+): Promise<AuthState> {
+  const supabase = await createClient();
+
+  // type-casting here for convenience
+  // in practice, you should validate your inputs
+  const data = {
+    email: formData.get("email") as string,
+    password: formData.get("password") as string,
+  };
+
+  const { data: signInData, error } =
+    await supabase.auth.signInWithPassword(data);
+  console.log("Sign in error is", error);
+  console.log("Sign in data is", signInData);
+
+  if (error) {
+    return {
+      error: error.message,
+    };
+  }
+
+  // Redirect on success
+  redirect("/dashboard");
+}
+
+export async function signInWithGoogle(
+  prevState: AuthState,
+  formData: FormData,
+): Promise<AuthState> {
   const supabase = await createClient();
 
   // Get the current origin for the callback URL
@@ -54,6 +92,8 @@ export async function signInWithGoogle() {
     },
   });
 
+  console.log("data fronm google login is", data);
+  console.log("error fronm google login is", error);
   if (error) {
     return { error: error.message };
   }
@@ -64,37 +104,4 @@ export async function signInWithGoogle() {
   }
 
   return { error: "Could not get provider URL" };
-}
-
-export async function signUp(
-  prevState: AuthState,
-  formData: FormData,
-): Promise<AuthState> {
-  const cookieStore = cookies();
-  const supabase = await createClient();
-
-  const data = {
-    email: formData.get("email") as string,
-    password: formData.get("password") as string,
-  };
-
-  const { error } = await supabase.auth.signUp({
-    email: data.email,
-    password: data.password,
-    options: {
-      data: {
-        first_name: formData.get("firstName") as string,
-        last_name: formData.get("lastName") as string,
-      },
-    },
-  });
-
-  if (error) {
-    return {
-      error: error.message,
-    };
-  }
-
-  // Redirect on success
-  redirect("/dashboard");
 }

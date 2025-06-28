@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function AuthCodeError() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
@@ -7,12 +9,12 @@ export default function AuthCodeError() {
           There was an error processing your authentication request. Please try
           signing in again.
         </p>
-        <a
-          href="/auth/signin"
+        <Link
+          href="/signin"
           className="rounded-md bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800"
         >
           Return to Sign In
-        </a>
+        </Link>
       </div>
     </div>
   );

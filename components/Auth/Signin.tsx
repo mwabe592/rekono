@@ -202,7 +202,7 @@ const Signin = () => {
                   Don&apos;t have an account?{" "}
                   <Link
                     className="hover:text-primary dark:hover:text-primary text-black dark:text-white"
-                    href="/auth/signup"
+                    href="/signup"
                   >
                     Sign Up
                   </Link>

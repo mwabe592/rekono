@@ -9,15 +9,14 @@ import CTA from "@/components/LandingPage/CTA";
 import FAQ from "@/components/LandingPage/FAQ/FAQ";
 import Pricing from "@/components/LandingPage/Pricing";
 import Contact from "@/components/LandingPage/Contact";
-import Blog from "@/components/LandingPage/Blog/Blog";
 import Integration from "@/components/LandingPage/Integration";
 import Testimonial from "@/components/LandingPage/Testimonial/Testimonial";
 import React from "react";
-export const metadata: Metadata = {
-  title: "Next.js Starter Template for SaaS Startups - Solid SaaS Boilerplate",
 
-  // other metadata
-  description: "This is Home for Solid Pro",
+export const metadata: Metadata = {
+  title: "Rekon - Bank Statement Matcher",
+  description:
+    "Upload and match transactions between credit card and bank account statements",
 };
 
 export default function Home() {
@@ -35,7 +34,6 @@ export default function Home() {
       <Testimonial />
       <Pricing />
       <Contact />
-      <Blog />
     </main>
   );
 }
