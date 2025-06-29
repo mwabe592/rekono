@@ -65,10 +65,11 @@ const Footer: React.FC = () => {
           {footerDetails.socials && (
             <div className="mt-5 flex flex-wrap items-center gap-5">
               {Object.keys(footerDetails.socials).map((platformName) => {
-                if (platformName && footerDetails.socials[platformName]) {
+                const socialUrl = footerDetails.socials[platformName];
+                if (platformName && socialUrl) {
                   return (
                     <Link
-                      href={footerDetails.socials[platformName]}
+                      href={socialUrl}
                       key={platformName}
                       aria-label={platformName}
                     >
@@ -76,6 +77,7 @@ const Footer: React.FC = () => {
                     </Link>
                   );
                 }
+                return null;
               })}
             </div>
           )}

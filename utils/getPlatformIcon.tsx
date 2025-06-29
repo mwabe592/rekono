@@ -1,3 +1,4 @@
+import React from "react";
 import {
   FaFacebook,
   FaGithub,
@@ -11,7 +12,7 @@ import {
 
 export const getPlatformIconByName = (
   platformName: string,
-): JSX.Element | null => {
+): React.ReactElement | null => {
   switch (platformName) {
     case "facebook": {
       return <FaFacebook size={24} className="min-w-fit" />;
