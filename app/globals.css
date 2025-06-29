@@ -21,12 +21,15 @@
   --color-blacksection: #1c2136;
   --color-primary: #006bff;
   --color-primaryho: #0063ec;
+  --color-primary-accent: #0056d6;
   --color-meta: #20c5a8;
   --color-waterloo: #757693;
   --color-manatee: #999aa1;
   --color-alabaster: #fbfbfb;
   --color-zumthor: #edf5ff;
   --color-socialicon: #d1d8e0;
+  --color-foreground: #1f2937;
+  --color-foreground-accent: #6b7280;
 
   --text-metatitle: 12px, 20px;
   --text-sectiontitle: 14px, 22px;
