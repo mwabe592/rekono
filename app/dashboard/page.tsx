@@ -63,7 +63,7 @@ export default function DashboardPage() {
         {/* Header */}
         <div className="mb-12 text-center">
           <h1 className="mb-4 text-4xl font-bold text-gray-800 md:text-5xl">
-            💳 Bank Statement Matcher
+            Simplify Your Statements
           </h1>
           <p className="mx-auto max-w-2xl text-xl text-gray-600">
             Upload two CSV bank statements to automatically match transactions
@@ -231,7 +231,7 @@ export default function DashboardPage() {
                 <p className="mb-4 text-lg text-gray-600">
                   {file1Data.length === 0 &&
                     file2Data.length === 0 &&
-                    "👆 Start by uploading your first CSV file"}
+                    " Start by uploading your first CSV file"}
                   {file1Data.length > 0 &&
                     file2Data.length === 0 &&
                     "✨ Great! Now upload your second CSV file"}

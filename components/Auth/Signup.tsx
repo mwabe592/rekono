@@ -1,6 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useActionState } from "react";
 import {
@@ -14,216 +12,168 @@ const Signup = () => {
   const [googleState, googleAction] = useActionState(signInWithGoogle, null);
 
   return (
-    <>
-      {/* <!-- ===== SignUp Form Start ===== --> */}
-      <section className="pt-32.5 pb-12.5 lg:pt-45 lg:pb-25 xl:pt-50 xl:pb-30">
-        <div className="max-w-c-1016 relative z-1 mx-auto px-7.5 pt-10 pb-7.5 lg:px-15 lg:pt-15 xl:px-20 xl:pt-20">
-          <div className="absolute top-0 left-0 -z-1 h-2/3 w-full rounded-lg bg-gradient-to-t from-transparent to-[#dee7ff47] dark:bg-gradient-to-t dark:to-[#252A42]"></div>
-          <div className="absolute bottom-17.5 left-0 -z-1 h-1/3 w-full">
-            <Image
-              src="/images/shape/shape-dotted-light.svg"
-              alt="Dotted"
-              className="dark:hidden"
-              fill
-            />
-            <Image
-              src="/images/shape/shape-dotted-dark.svg"
-              alt="Dotted"
-              className="hidden dark:block"
-              fill
-            />
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md">
+        <div className="space-y-8 rounded-2xl border border-gray-100 bg-white p-8 shadow-2xl">
+          <div>
+            <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">
+              Create your account
+            </h2>
+            <p className="mt-3 text-center text-sm text-gray-600">
+              Or{" "}
+              <Link
+                href="/signin"
+                className="text-primary hover:text-primary-accent font-medium transition-colors"
+              >
+                sign in to your existing account
+              </Link>
+            </p>
           </div>
 
-          <motion.div
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -20,
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-              },
-            }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 1, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="animate_top shadow-solid-8 dark:border-strokedark rounded-lg bg-white px-7.5 pt-7.5 xl:px-15 xl:pt-15 dark:border dark:bg-black"
-          >
-            <h2 className="xl:text-sectiontitle2 mb-15 text-center text-3xl font-semibold text-black dark:text-white">
-              Create an Account
-            </h2>
-
-            {(state?.error || googleState?.error) && (
-              <div className="mb-4 rounded-md bg-red-50 p-4 text-red-600">
+          {(state?.error || googleState?.error) && (
+            <div className="rounded-xl border border-red-200 bg-red-50 p-4">
+              <div className="text-sm text-red-600">
                 {state?.error || googleState?.error}
               </div>
-            )}
+            </div>
+          )}
 
-            <div className="flex items-center gap-8">
-              <form action={googleAction}>
-                <button
-                  type="submit"
-                  aria-label="signup with google"
-                  className="text-body-color dark:text-body-color-dark dark:shadow-two border-stroke hover:border-primary hover:bg-primary/5 hover:text-primary dark:hover:border-primary dark:hover:bg-primary/5 dark:hover:text-primary mb-6 flex w-full items-center justify-center rounded-xs border bg-[#f8f8f8] px-6 py-3 text-base transition-all duration-300 outline-none dark:border-transparent dark:bg-[#2C303B] dark:hover:shadow-none"
+          <form action={googleAction} className="space-y-6">
+            <button
+              type="submit"
+              className="group focus:ring-primary relative flex w-full justify-center rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:shadow-md focus:ring-2 focus:ring-offset-2 focus:outline-none"
+            >
+              <span className="absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg
+                  className="h-5 w-5 text-gray-400 group-hover:text-gray-500"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
                 >
-                  <span className="mr-3">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <g clipPath="url(#clip0_95:967)">
-                        <path
-                          d="M20.0001 10.2216C20.0122 9.53416 19.9397 8.84776 19.7844 8.17725H10.2042V11.8883H15.8277C15.7211 12.539 15.4814 13.1618 15.1229 13.7194C14.7644 14.2769 14.2946 14.7577 13.7416 15.1327L13.722 15.257L16.7512 17.5567L16.961 17.5772C18.8883 15.8328 19.9997 13.266 19.9997 10.2216"
-                          fill="#4285F4"
-                        />
-                        <path
-                          d="M10.2042 20.0001C12.9592 20.0001 15.2721 19.1111 16.9616 17.5778L13.7416 15.1332C12.88 15.7223 11.7235 16.1334 10.2042 16.1334C8.91385 16.126 7.65863 15.7206 6.61663 14.9747C5.57464 14.2287 4.79879 13.1802 4.39915 11.9778L4.27957 11.9878L1.12973 14.3766L1.08856 14.4888C1.93689 16.1457 3.23879 17.5387 4.84869 18.512C6.45859 19.4852 8.31301 20.0005 10.2046 20.0001"
-                          fill="#34A853"
-                        />
-                        <path
-                          d="M4.39911 11.9777C4.17592 11.3411 4.06075 10.673 4.05819 9.99996C4.0623 9.32799 4.17322 8.66075 4.38696 8.02225L4.38127 7.88968L1.19282 5.4624L1.08852 5.51101C0.372885 6.90343 0.00012207 8.4408 0.00012207 9.99987C0.00012207 11.5589 0.372885 13.0963 1.08852 14.4887L4.39911 11.9777Z"
-                          fill="#FBBC05"
-                        />
-                        <path
-                          d="M10.2042 3.86663C11.6663 3.84438 13.0804 4.37803 14.1498 5.35558L17.0296 2.59996C15.1826 0.901848 12.7366 -0.0298855 10.2042 -3.6784e-05C8.3126 -0.000477834 6.45819 0.514732 4.8483 1.48798C3.2384 2.46124 1.93649 3.85416 1.08813 5.51101L4.38775 8.02225C4.79132 6.82005 5.56974 5.77231 6.61327 5.02675C7.6568 4.28118 8.91279 3.87541 10.2042 3.86663Z"
-                          fill="#EB4335"
-                        />
-                      </g>
-                      <defs>
-                        <clipPath id="clip0_95:967">
-                          <rect width="20" height="20" fill="white" />
-                        </clipPath>
-                      </defs>
-                    </svg>
-                  </span>
-                  Sign up with Google
-                </button>
-              </form>
+                  <path
+                    fillRule="evenodd"
+                    d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </span>
+              Sign up with Google
+            </button>
+          </form>
+
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300" />
             </div>
-
-            <div className="mb-10 flex items-center justify-center">
-              <span className="bg-stroke dark:bg-stroke-dark dark:bg-strokedark hidden h-[1px] w-full max-w-[200px] sm:block"></span>
-              <p className="text-body-color dark:text-body-color-dark w-full px-5 text-center text-base">
-                Or, register with your email
-              </p>
-              <span className="bg-stroke dark:bg-stroke-dark dark:bg-strokedark hidden h-[1px] w-full max-w-[200px] sm:block"></span>
+            <div className="relative flex justify-center text-sm">
+              <span className="bg-white px-2 text-gray-500">
+                Or continue with
+              </span>
             </div>
+          </div>
 
-            <form action={action}>
-              <div className="mb-7.5 flex flex-col gap-7.5 lg:mb-12.5 lg:flex-row lg:justify-between lg:gap-14">
-                <input
-                  name="firstName"
-                  type="text"
-                  placeholder="First name"
-                  required
-                  className="border-stroke focus:border-waterloo dark:border-strokedark dark:focus:border-manatee w-full border-b bg-transparent pb-3.5 focus:placeholder:text-black focus-visible:outline-none lg:w-1/2 dark:focus:placeholder:text-white"
-                />
-
-                <input
-                  name="lastName"
-                  type="text"
-                  placeholder="Last name"
-                  required
-                  className="border-stroke focus:border-waterloo dark:border-strokedark dark:focus:border-manatee w-full border-b bg-transparent pb-3.5 focus:placeholder:text-black focus-visible:outline-none lg:w-1/2 dark:focus:placeholder:text-white"
-                />
+          <form action={action} className="space-y-6">
+            <div className="space-y-5">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="firstName"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
+                    First name
+                  </label>
+                  <input
+                    id="firstName"
+                    name="firstName"
+                    type="text"
+                    autoComplete="given-name"
+                    required
+                    className="focus:ring-primary focus:border-primary relative block w-full appearance-none rounded-xl border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 focus:z-10 focus:shadow-md focus:ring-2 focus:outline-none sm:text-sm"
+                    placeholder="First name"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="lastName"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
+                    Last name
+                  </label>
+                  <input
+                    id="lastName"
+                    name="lastName"
+                    type="text"
+                    autoComplete="family-name"
+                    required
+                    className="focus:ring-primary focus:border-primary relative block w-full appearance-none rounded-xl border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 focus:z-10 focus:shadow-md focus:ring-2 focus:outline-none sm:text-sm"
+                    placeholder="Last name"
+                  />
+                </div>
               </div>
-
-              <div className="mb-7.5 flex flex-col gap-7.5 lg:mb-12.5 lg:flex-row lg:justify-between lg:gap-14">
+              <div>
+                <label
+                  htmlFor="email"
+                  className="mb-2 block text-sm font-medium text-gray-700"
+                >
+                  Email address
+                </label>
                 <input
+                  id="email"
                   name="email"
                   type="email"
-                  placeholder="Email address"
+                  autoComplete="email"
                   required
-                  className="border-stroke focus:border-waterloo dark:border-strokedark dark:focus:border-manatee w-full border-b bg-transparent pb-3.5 focus:placeholder:text-black focus-visible:outline-none lg:w-1/2 dark:focus:placeholder:text-white"
+                  className="focus:ring-primary focus:border-primary relative block w-full appearance-none rounded-xl border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 focus:z-10 focus:shadow-md focus:ring-2 focus:outline-none sm:text-sm"
+                  placeholder="Enter your email"
                 />
-
+              </div>
+              <div>
+                <label
+                  htmlFor="password"
+                  className="mb-2 block text-sm font-medium text-gray-700"
+                >
+                  Password
+                </label>
                 <input
+                  id="password"
                   name="password"
                   type="password"
-                  placeholder="Password"
+                  autoComplete="new-password"
                   required
-                  className="border-stroke focus:border-waterloo dark:border-strokedark dark:focus:border-manatee w-full border-b bg-transparent pb-3.5 focus:placeholder:text-black focus-visible:outline-none lg:w-1/2 dark:focus:placeholder:text-white"
+                  className="focus:ring-primary focus:border-primary relative block w-full appearance-none rounded-xl border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 focus:z-10 focus:shadow-md focus:ring-2 focus:outline-none sm:text-sm"
+                  placeholder="Create a password"
                 />
               </div>
+            </div>
 
-              <div className="flex flex-wrap gap-10 md:justify-between xl:gap-15">
-                <div className="mb-4 flex items-center">
-                  <input
-                    id="default-checkbox"
-                    type="checkbox"
-                    name="remember"
-                    className="peer sr-only"
-                  />
-                  <span className="group peer-checked:bg-primary mt-1 flex h-5 min-w-[20px] items-center justify-center rounded-sm border-gray-300 bg-gray-100 text-blue-600 dark:border-gray-600 dark:bg-gray-700">
-                    <svg
-                      className="opacity-0 peer-checked:opacity-100"
-                      width="10"
-                      height="8"
-                      viewBox="0 0 10 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        clipRule="evenodd"
-                        d="M9.70704 0.792787C9.89451 0.980314 9.99983 1.23462 9.99983 1.49979C9.99983 1.76495 9.89451 2.01926 9.70704 2.20679L4.70704 7.20679C4.51951 7.39426 4.26521 7.49957 4.00004 7.49957C3.73488 7.49957 3.48057 7.39426 3.29304 7.20679L0.293041 4.20679C0.110883 4.01818 0.0100885 3.76558 0.0123669 3.50339C0.0146453 3.24119 0.119814 2.99038 0.305222 2.80497C0.490631 2.61956 0.741443 2.51439 1.00364 2.51211C1.26584 2.50983 1.51844 2.61063 1.70704 2.79279L4.00004 5.08579L8.29304 0.792787C8.48057 0.605316 8.73488 0.5 9.00004 0.5C9.26521 0.5 9.51951 0.605316 9.70704 0.792787Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </span>
-                  <label
-                    htmlFor="default-checkbox"
-                    className="pl-3 select-none"
-                  >
-                    Keep me signed in
-                  </label>
-                </div>
+            <div className="flex items-center">
+              <input
+                id="remember"
+                name="remember"
+                type="checkbox"
+                className="text-primary focus:ring-primary h-4 w-4 rounded border-gray-300"
+              />
+              <label
+                htmlFor="remember"
+                className="ml-2 block text-sm text-gray-900"
+              >
+                Keep me signed in
+              </label>
+            </div>
 
-                <button
-                  type="submit"
-                  disabled={isPending}
-                  aria-label="signup with email and password"
-                  className="hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho inline-flex items-center gap-2.5 rounded-full bg-black px-6 py-3 font-medium text-white duration-300 ease-in-out disabled:opacity-50"
-                >
-                  {isPending ? "Creating Account..." : "Create Account"}
-                  <svg
-                    className="fill-white"
-                    width="14"
-                    height="14"
-                    viewBox="0 0 14 14"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.4767 6.16664L6.00668 1.69664L7.18501 0.518311L13.6667 6.99998L7.18501 13.4816L6.00668 12.3033L10.4767 7.83331H0.333344V6.16664H10.4767Z"
-                      fill=""
-                    />
-                  </svg>
-                </button>
-              </div>
-
-              <div className="border-stroke dark:border-strokedark mt-12.5 border-t py-5 text-center">
-                <p>
-                  Already have an account?{" "}
-                  <Link
-                    className="hover:text-primary dark:hover:text-primary text-black dark:text-white"
-                    href="/signin"
-                  >
-                    Sign In
-                  </Link>
-                </p>
-              </div>
-            </form>
-          </motion.div>
+            <div>
+              <button
+                type="submit"
+                disabled={isPending}
+                className="group bg-primary hover:bg-primary-accent focus:ring-primary relative flex w-full transform justify-center rounded-xl border border-transparent px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
+              >
+                {isPending ? "Creating Account..." : "Create Account"}
+              </button>
+            </div>
+          </form>
         </div>
-      </section>
-      {/* <!-- ===== SignUp Form End ===== --> */}
-    </>
+      </div>
+    </div>
   );
 };
 
