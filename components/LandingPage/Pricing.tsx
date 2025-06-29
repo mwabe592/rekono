@@ -1,200 +1,192 @@
 "use client";
-import Image from "next/image";
-import SectionHeader from "../Common/SectionHeader";
+import React from "react";
+import clsx from "clsx";
+import { BsFillCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 
-const Pricing = () => {
+interface PricingTier {
+  name: string;
+  subtitle: string;
+  description: string;
+  price: number | string;
+  color: string;
+  features: {
+    text: string;
+    included: boolean;
+  }[];
+  popular?: boolean;
+}
+
+const tiers: PricingTier[] = [
+  {
+    name: "Starter",
+    subtitle: "Free",
+    description: "For occasional users who need a quick match here and there.",
+    price: 0,
+    color: "green",
+    features: [
+      { text: "20 statement matches/month", included: true },
+      { text: "Upload 2 CSV files per match", included: true },
+      { text: "Smart matching algorithm", included: true },
+      { text: "PDF + CSV export", included: true },
+      { text: "Match history", included: false },
+      { text: "Tolerance settings", included: false },
+      { text: "Support", included: false },
+    ],
+  },
+  {
+    name: "Power Matcher",
+    subtitle: "Standard",
+    description: "Ideal for regular users who want power and flexibility.",
+    price: 5,
+    color: "blue",
+    popular: true,
+    features: [
+      { text: "Unlimited statement matches", included: true },
+      { text: "All Free features", included: true },
+      { text: "Access to match history (locally stored)", included: true },
+      { text: "Adjustable match tolerance", included: true },
+      { text: "Batch upload & matching", included: true },
+      { text: "Description/amount filters", included: true },
+      { text: "Early access to features", included: true },
+      { text: "Priority support", included: true },
+    ],
+  },
+  {
+    name: "Team Reconcile",
+    subtitle: "Pro",
+    description:
+      "For power users, freelancers or small teams who reconcile frequently.",
+    price: 12,
+    color: "yellow",
+    features: [
+      { text: "All Standard features", included: true },
+      { text: "Manage up to 5 profiles or accounts", included: true },
+      { text: "Upload multiple file sets at once", included: true },
+      { text: "Advanced filters (custom rules, tags, notes)", included: true },
+      { text: "Shareable reports (PDF/CSV with branding)", included: true },
+      { text: "Email summaries of matches", included: true },
+      { text: "Dedicated support inbox", included: true },
+    ],
+  },
+];
+
+const PricingColumn: React.FC<{ tier: PricingTier; highlight?: boolean }> = ({
+  tier,
+  highlight,
+}) => {
+  const { name, subtitle, description, price, color, features, popular } = tier;
+
+  const getColorClasses = (color: string) => {
+    switch (color) {
+      case "green":
+        return "text-green-600";
+      case "blue":
+        return "text-blue-600";
+      case "yellow":
+        return "text-yellow-600";
+      default:
+        return "text-gray-600";
+    }
+  };
+
+  const getBadgeColor = (color: string) => {
+    switch (color) {
+      case "green":
+        return "bg-green-100 text-green-800";
+      case "blue":
+        return "bg-blue-100 text-blue-800";
+      case "yellow":
+        return "bg-yellow-100 text-yellow-800";
+      default:
+        return "bg-gray-100 text-gray-800";
+    }
+  };
+
   return (
-    <>
-      {/* <!-- ===== Pricing Table Start ===== --> */}
-      <section
-        id="pricing"
-        className="overflow-hidden pt-15 pb-20 lg:pb-25 xl:pb-30"
-      >
-        <div className="max-w-c-1315 mx-auto px-4 md:px-8 xl:px-0">
-          {/* <!-- Section Title Start --> */}
-          <div className="animate_top mx-auto text-center">
-            <SectionHeader
-              headerInfo={{
-                title: `PRICING PLANS`,
-                subtitle: `Simple Pricing`,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`,
-              }}
-            />
-          </div>
-          {/* <!-- Section Title End --> */}
+    <div
+      className={clsx(
+        "relative mx-auto w-full max-w-sm rounded-xl border border-gray-200 bg-white lg:max-w-full",
+        { "ring-primary ring-opacity-50 shadow-lg ring-2": highlight },
+      )}
+    >
+      {popular && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 transform">
+          <span className="bg-primary rounded-full px-4 py-1 text-sm font-medium text-white">
+            Most Popular
+          </span>
         </div>
+      )}
 
-        <div className="relative mx-auto mt-15 max-w-[1207px] px-4 md:px-8 xl:mt-20 xl:px-0">
-          <div className="absolute -bottom-15 -z-1 h-full w-full">
-            <Image
-              fill
-              src="./images/shape/shape-dotted-light.svg"
-              alt="Dotted"
-              className="dark:hidden"
-            />
-          </div>
-          <div className="flex flex-wrap justify-center gap-7.5 lg:flex-nowrap xl:gap-12.5">
-            {/* <!-- Pricing Item --> */}
-            <div className="animate_top group border-stroke shadow-solid-10 dark:border-strokedark dark:bg-blacksection relative rounded-lg border bg-white p-7.5 md:w-[45%] lg:w-1/3 xl:p-12.5 dark:shadow-none">
-              <h3 className="xl:text-sectiontitle3 mb-7.5 text-3xl font-bold text-black dark:text-white">
-                $10{" "}
-                <span className="text-regular text-waterloo dark:text-manatee">
-                  /month
-                </span>
-              </h3>
-              <h4 className="text-para2 mb-2.5 font-medium text-black dark:text-white">
-                Small Pack
-              </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-
-              <div className="border-stroke dark:border-strokedark mt-9 border-t pt-9 pb-12.5">
-                <ul>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    300 GB Storage
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    Unlimited Photos and Videos
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black opacity-40 last:mb-0">
-                    Exclusive Support
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black opacity-40 last:mb-0">
-                    Custom Branding Strategy
-                  </li>
-                </ul>
-              </div>
-
-              <button
-                aria-label="Get the Plan button"
-                className="group/btn text-primary dark:hover:text-primary inline-flex items-center gap-2.5 font-medium transition-all duration-300 dark:text-white"
-              >
-                <span className="duration-300 group-hover/btn:pr-2">
-                  Get the Plan
-                </span>
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.4767 6.16701L6.00668 1.69701L7.18501 0.518677L13.6667 7.00034L7.18501 13.482L6.00668 12.3037L10.4767 7.83368H0.333344V6.16701H10.4767Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* <!-- Pricing Item --> */}
-            <div className="animate_top group border-stroke shadow-solid-10 dark:border-strokedark dark:bg-blacksection relative rounded-lg border bg-white p-7.5 md:w-[45%] lg:w-1/3 xl:p-12.5 dark:shadow-none">
-              <div className="bg-primary text-metatitle absolute top-7.5 -right-3.5 -rotate-90 rounded-tl-full rounded-bl-full px-4.5 py-1.5 font-medium text-white uppercase">
-                popular
-              </div>
-
-              <h3 className="xl:text-sectiontitle3 mb-7.5 text-3xl font-bold text-black dark:text-white">
-                $59{" "}
-                <span className="text-regular text-waterloo dark:text-manatee">
-                  /month
-                </span>
-              </h3>
-              <h4 className="text-para2 mb-2.5 font-medium text-black dark:text-white">
-                Medium Pack
-              </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-
-              <div className="border-stroke dark:border-strokedark mt-9 border-t pt-9 pb-12.5">
-                <ul>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    300 GB Storage
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    Unlimited Photos and Videos
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    Exclusive Support
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black opacity-40 last:mb-0">
-                    Custom Branding Strategy
-                  </li>
-                </ul>
-              </div>
-
-              <button
-                aria-label="Get the Plan button"
-                className="group/btn text-primary dark:hover:text-primary inline-flex items-center gap-2.5 font-medium transition-all duration-300 dark:text-white"
-              >
-                <span className="duration-300 group-hover/btn:pr-2">
-                  Get the Plan
-                </span>
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.4767 6.16701L6.00668 1.69701L7.18501 0.518677L13.6667 7.00034L7.18501 13.482L6.00668 12.3037L10.4767 7.83368H0.333344V6.16701H10.4767Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
-            </div>
-
-            {/* <!-- Pricing Item --> */}
-            <div className="animate_top group border-stroke shadow-solid-10 dark:border-strokedark dark:bg-blacksection relative rounded-lg border bg-white p-7.5 md:w-[45%] lg:w-1/3 xl:p-12.5 dark:shadow-none">
-              <h3 className="xl:text-sectiontitle3 mb-7.5 text-3xl font-bold text-black dark:text-white">
-                $189{" "}
-                <span className="text-regular text-waterloo dark:text-manatee">
-                  /month
-                </span>
-              </h3>
-              <h4 className="text-para2 mb-2.5 font-medium text-black dark:text-white">
-                Large Pack
-              </h4>
-              <p>Lorem ipsum dolor sit amet, consec adipisicing elit.</p>
-
-              <div className="border-stroke dark:border-strokedark mt-9 border-t pt-9 pb-12.5">
-                <ul>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    300 GB Storage
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    Unlimited Photos and Videos
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    Exclusive Support
-                  </li>
-                  <li className="dark:text-manatee mb-4 text-black last:mb-0">
-                    Custom Branding Strategy
-                  </li>
-                </ul>
-              </div>
-
-              <button
-                aria-label="Get the Plan button"
-                className="group/btn text-primary dark:hover:text-primary inline-flex items-center gap-2.5 font-medium transition-all duration-300 dark:text-white"
-              >
-                <span className="duration-300 group-hover/btn:pr-2">
-                  Get the Plan
-                </span>
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 14 14"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10.4767 6.16701L6.00668 1.69701L7.18501 0.518677L13.6667 7.00034L7.18501 13.482L6.00668 12.3037L10.4767 7.83368H0.333344V6.16701H10.4767Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
+      <div className="rounded-t-xl border-b border-gray-200 p-6">
+        <div className="mb-2 flex items-center gap-2">
+          <span
+            className={clsx(
+              "rounded px-2 py-1 text-sm font-medium",
+              getBadgeColor(color),
+            )}
+          >
+            {subtitle}
+          </span>
         </div>
-      </section>
-      {/* <!-- ===== Pricing Table End ===== --> */}
-    </>
+        <h3 className="mb-2 text-2xl font-semibold">{name}</h3>
+        <p className="mb-4 text-sm text-gray-600">{description}</p>
+        <p className="mb-6 text-3xl font-bold md:text-5xl">
+          <span className={clsx({ "text-primary": highlight })}>
+            {typeof price === "number" ? `$${price}` : price}
+          </span>
+          {typeof price === "number" && (
+            <span className="text-lg font-normal text-gray-600">/mo</span>
+          )}
+        </p>
+        <button
+          className={clsx(
+            "w-full rounded-full px-4 py-3 font-medium transition-colors",
+            {
+              "bg-primary hover:bg-primary-accent text-white": highlight,
+              "hover:bg-primary-accent bg-white text-gray-900 hover:text-white":
+                !highlight,
+            },
+          )}
+        >
+          Get Started
+        </button>
+      </div>
+
+      <div className="p-6">
+        <p className="mb-2 font-bold">FEATURES</p>
+        <ul className="space-y-3">
+          {features.map((feature, index) => (
+            <li key={index} className="flex items-start">
+              {feature.included ? (
+                <BsFillCheckCircleFill className="mt-0.5 mr-3 h-5 w-5 flex-shrink-0 text-green-500" />
+              ) : (
+                <BsXCircleFill className="mt-0.5 mr-3 h-5 w-5 flex-shrink-0 text-gray-400" />
+              )}
+              <span
+                className={clsx(
+                  "text-sm",
+                  feature.included
+                    ? "text-gray-900"
+                    : "text-gray-500 line-through",
+                )}
+              >
+                {feature.text}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+const Pricing: React.FC = () => {
+  return (
+    <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      {tiers.map((tier, index) => (
+        <PricingColumn key={tier.name} tier={tier} highlight={tier.popular} />
+      ))}
+    </div>
   );
 };
 

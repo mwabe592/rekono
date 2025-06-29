@@ -30,6 +30,7 @@
   --color-socialicon: #d1d8e0;
   --color-foreground: #1f2937;
   --color-foreground-accent: #6b7280;
+  --color-hero-background: #f8fafc;
 
   --text-metatitle: 12px, 20px;
   --text-sectiontitle: 14px, 22px;
@@ -200,26 +201,29 @@
 }
 
 .blog-details blockquote {
-  @apply bg-manatee dark:bg-titlebgdark relative z-10 mb-10 overflow-hidden rounded-xs p-8 text-center text-base font-medium text-black italic md:py-9 lg:px-10;
+  @apply border-primary my-4 border-l-4 pl-4 italic;
 }
 
 .blog-details blockquote::after {
   content: "";
-  @apply absolute right-0 bottom-0 h-20 w-20 bg-[url(/images/blog/quote-shape-2.svg)] bg-contain bg-right-bottom bg-no-repeat;
+  display: block;
+  clear: both;
 }
 
 .blog-details blockquote::before {
   content: "";
-  @apply absolute top-0 left-0 h-[106px] w-[140px] bg-[url(/images/blog/quote-shape-1.svg)] bg-contain bg-left-top bg-no-repeat dark:bg-[url(/images/blog/quote-shape-1.svg)];
+  display: block;
+  clear: both;
 }
 
 pre {
-  @apply bg-strokedark relative mb-2 rounded-lg px-4 py-2;
+  @apply overflow-x-auto rounded bg-gray-100 p-4 dark:bg-gray-800;
 }
+
 .prism-copy-button {
-  @apply text-primary absolute top-2 right-2 h-[26px] rounded-sm bg-white px-4;
+  @apply absolute top-2 right-2 rounded bg-gray-200 px-2 py-1 text-sm text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600;
 }
 
 .active-tab {
-  @apply bg-stroke dark:bg-blackho text-black dark:text-white;
+  @apply bg-primary text-white;
 }

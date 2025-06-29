@@ -113,7 +113,7 @@ export const parseCSV = (csvText: string): Transaction[] => {
 };
 
 const parseCSVRow = (row: string): string[] => {
-  const result = [];
+  const result: string[] = [];
   let current = "";
   let inQuotes = false;
 
