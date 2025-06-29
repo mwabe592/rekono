@@ -8,7 +8,7 @@ import LayoutWrapper from "@/components/LayoutWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Rekon - Bank Statement Matcher",
+  title: "Rekon",
   description:
     "Upload and match transactions between credit card and bank account statements",
 };
@@ -23,9 +23,7 @@ export default function RootLayout({
       <body className={`dark:bg-black ${inter.className}`}>
         <Providers>
           <ToasterContext />
-          <LayoutWrapper>
-            {children}
-          </LayoutWrapper>
+          <LayoutWrapper>{children}</LayoutWrapper>
         </Providers>
       </body>
     </html>

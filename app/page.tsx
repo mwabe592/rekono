@@ -11,7 +11,7 @@ import Pricing from "@/components/LandingPage/Pricing";
 import Testimonial from "@/components/LandingPage/Testimonial/Testimonial";
 
 export const metadata: Metadata = {
-  title: "Rekon - Bank Statement Matcher",
+  title: "Rekon",
   description:
     "Upload and match transactions between credit card and bank account statements",
 };
@@ -41,8 +41,6 @@ export default function Home() {
         </Section>
 
         <FAQ />
-
-        <Stats />
 
         <CTA />
       </Container>

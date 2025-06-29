@@ -5,13 +5,10 @@ import { motion, Variants } from "framer-motion";
 import clsx from "clsx";
 import {
   FiBarChart2,
-  FiBriefcase,
-  FiDollarSign,
   FiLock,
   FiPieChart,
   FiShield,
   FiTarget,
-  FiTrendingUp,
   FiUser,
   FiFileText,
   FiCheckCircle,
@@ -54,7 +51,7 @@ const containerVariants: Variants = {
   },
 };
 
-export const childVariants = {
+const childVariants: Variants = {
   offscreen: {
     opacity: 0,
     x: -50,

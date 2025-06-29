@@ -1,87 +1,58 @@
 "use client";
+import React from "react";
+import Image from "next/image";
+import { testimonials } from "@/data/testimonials";
 
-import { Autoplay, Pagination } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-import { motion } from "framer-motion";
-import SingleTestimonial from "./SingleTestimonial";
-import { testimonialData } from "./testimonialData";
-import SectionHeader from "@/components/Common/SectionHeader";
-
-const Testimonial = () => {
+const Testimonial: React.FC = () => {
   return (
-    <>
-      <section>
-        <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
-          {/* <!-- Section Title Start --> */}
-          <div className="animate_top mx-auto text-center">
-            <SectionHeader
-              headerInfo={{
-                title: `TESTIMONIALS`,
-                subtitle: `Client’s Testimonials`,
-                description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam ante in maximus.`,
-              }}
-            />
-          </div>
-          {/* <!-- Section Title End --> */}
+    <section id="testimonials" className="py-10 lg:py-20">
+      <div className="max-w-c-1315 mx-auto px-4 md:px-8 xl:px-0">
+        <div className="animate_top mx-auto text-center">
+          <span className="font-medium text-black uppercase dark:text-white">
+            TESTIMONIALS
+          </span>
+          <h2 className="xl:text-hero relative mb-6 text-3xl font-bold text-black dark:text-white">
+            Client's
+            <span className="before:bg-titlebg2 dark:before:bg-titlebgdark relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full">
+              Testimonials
+            </span>
+          </h2>
+          <p className="text-para2 text-waterloo dark:text-manatee">
+            See what our users say about Rekon's transaction reconciliation
+            capabilities.
+          </p>
         </div>
+      </div>
 
-        <motion.div
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: -20,
-            },
-
-            visible: {
-              opacity: 1,
-              y: 0,
-            },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          transition={{ duration: 1, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="animate_top mx-auto mt-15 max-w-c-1235 px-4 md:px-8 xl:mt-20 xl:px-0"
-        >
-          {/* <!-- Slider main container --> */}
-          <div className="swiper testimonial-01 mb-20 pb-22.5">
-            {/* <!-- Additional required wrapper --> */}
-            <Swiper
-              spaceBetween={50}
-              slidesPerView={2}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              modules={[Autoplay, Pagination]}
-              breakpoints={{
-                // when window width is >= 640px
-                0: {
-                  slidesPerView: 1,
-                },
-                // when window width is >= 768px
-                768: {
-                  slidesPerView: 2,
-                },
-              }}
-            >
-              {testimonialData.map((review) => (
-                <SwiperSlide key={review?.id}>
-                  <SingleTestimonial review={review} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </motion.div>
-      </section>
-    </>
+      <div className="max-w-c-1235 mx-auto mt-15 px-4 md:px-8 xl:mt-20 xl:px-0">
+        <div className="mx-auto grid w-full max-w-lg gap-14 lg:max-w-full lg:grid-cols-3 lg:gap-8">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="">
+              <div className="mb-4 flex w-full items-center justify-center lg:justify-start">
+                <Image
+                  src={testimonial.avatar}
+                  alt={`${testimonial.name} avatar`}
+                  width={50}
+                  height={50}
+                  className="rounded-full shadow-md"
+                />
+                <div className="ml-4">
+                  <h3 className="text-primary text-lg font-semibold">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-waterloo dark:text-manatee text-sm">
+                    {testimonial.role}
+                  </p>
+                </div>
+              </div>
+              <p className="text-waterloo dark:text-manatee text-center lg:text-left">
+                &quot;{testimonial.message}&quot;
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
