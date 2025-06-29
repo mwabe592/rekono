@@ -1,0 +1,20 @@
+{
+  "name": "Rekon - Bank Statement Matcher",
+  "short_name": "Rekon",
+  "description": "Upload and match transactions between credit card and bank account statements",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ],
+  "theme_color": "#006bff",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}

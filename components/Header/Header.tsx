@@ -28,11 +28,11 @@ const Header = () => {
             <Image
               src="/images/logo/rekon-high-resolution-logo-transparent.png"
               alt="logo"
-              width={30}
-              height={30}
+              width={55}
+              height={55}
               className="w-full dark:hidden"
             />
-            <span className="manrope text-foreground cursor-pointer text-xl font-semibold">
+            <span className="manrope text-foreground cursor-pointer text-4xl font-semibold">
               Rekon
             </span>
           </Link>
@@ -52,7 +52,7 @@ const Header = () => {
             <li>
               <Link
                 href="/signin"
-                className="bg-primary hover:bg-primary-accent rounded-full px-8 py-3 text-black transition-colors"
+                className="bg-primary hover:bg-primary-accent rounded-full px-8 py-3 text-white transition-colors"
               >
                 Sign In
               </Link>
@@ -60,7 +60,7 @@ const Header = () => {
             <li>
               <Link
                 href="/signup"
-                className="border-primary text-primary hover:bg-primary rounded-full border px-8 py-3 transition-colors hover:text-black"
+                className="border-primary text-primary hover:bg-primary rounded-full border px-8 py-3 transition-colors hover:text-white"
               >
                 Sign Up
               </Link>

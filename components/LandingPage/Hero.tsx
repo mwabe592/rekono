@@ -25,12 +25,12 @@ const Hero: React.FC = () => {
         </p>
         <div className="mx-auto mt-6 flex w-fit flex-col items-center sm:flex-row sm:gap-4">
           <Link href="/signin">
-            <button className="bg-primary hover:bg-primary-accent rounded-full px-8 py-3 font-medium text-black transition-colors">
+            <button className="bg-primary hover:bg-primary-accent rounded-full px-8 py-3 font-medium text-white transition-colors">
               Get Started
             </button>
           </Link>
           <Link href="/signup">
-            <button className="border-primary text-primary hover:bg-primary rounded-full border px-8 py-3 font-medium transition-colors hover:text-black">
+            <button className="border-primary text-primary hover:bg-primary rounded-full border px-8 py-3 font-medium transition-colors hover:text-white">
               Sign Up Free
             </button>
           </Link>
