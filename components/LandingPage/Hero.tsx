@@ -1,104 +1,53 @@
 "use client";
+import React from "react";
 import Image from "next/image";
-import { useState } from "react";
+import Link from "next/link";
 
-const Hero = () => {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
+const Hero: React.FC = () => {
   return (
-    <>
-      <section className="overflow-hidden pt-35 pb-20 md:pt-40 xl:pt-46 xl:pb-25">
-        <div className="max-w-c-1390 mx-auto px-4 md:px-8 2xl:px-0">
-          <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
-            <div className="md:w-1/2">
-              <h4 className="mb-4.5 text-lg font-medium text-black dark:text-white">
-                🔥 Solid - A Complete SaaS Web Template
-              </h4>
-              <h1 className="xl:text-hero mb-5 pr-16 text-3xl font-bold text-black dark:text-white">
-                Free Next.js Template for {"   "}
-                <span className="before:bg-titlebg dark:before:bg-titlebgdark relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full">
-                  SaaS
-                </span>
-              </h1>
-              <p>
-                Solid Pro - Packed with all the key integrations you need for
-                swift SaaS startup launch, including - Auth, Database, Sanity
-                Blog, Essential Components, Pages and More. Built-winth -
-                Next.js 13, React 18 and TypeScript.
-              </p>
+    <section
+      id="hero"
+      className="relative flex items-center justify-center px-5 pt-32 pb-0 md:pt-40"
+    >
+      <div className="absolute top-0 bottom-0 left-0 -z-10 w-full">
+        <div className="bg-hero-background absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)] bg-[size:40px_40px]"></div>
+      </div>
 
-              <div className="mt-10">
-                <form onSubmit={handleSubmit}>
-                  <div className="flex flex-wrap gap-5">
-                    <input
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      type="text"
-                      placeholder="Enter your email address"
-                      className="border-stroke shadow-solid-2 focus:border-primary dark:border-strokedark dark:focus:border-primary rounded-full border px-6 py-2.5 focus:outline-hidden dark:bg-black dark:shadow-none"
-                    />
-                    <button
-                      aria-label="get started button"
-                      className="hover:bg-blackho dark:bg-btndark dark:hover:bg-blackho flex rounded-full bg-black px-7.5 py-2.5 text-white duration-300 ease-in-out"
-                    >
-                      Get Started
-                    </button>
-                  </div>
-                </form>
+      <div className="absolute right-0 bottom-0 left-0 h-40 bg-gradient-to-b from-transparent via-[rgba(233,238,255,0.5)] to-[rgba(202,208,230,0.5)] backdrop-blur-[2px]"></div>
 
-                <p className="mt-5 text-black dark:text-white">
-                  Try for free no credit card required.
-                </p>
-              </div>
-            </div>
-
-            <div className="animate_right hidden md:w-1/2 lg:block">
-              <div className="relative 2xl:-mr-7.5">
-                <Image
-                  src="/images/shape/shape-01.png"
-                  alt="shape"
-                  width={46}
-                  height={246}
-                  className="absolute top-0 -left-11.5"
-                />
-                <Image
-                  src="/images/shape/shape-02.svg"
-                  alt="shape"
-                  width={36.9}
-                  height={36.7}
-                  className="absolute right-0 bottom-0 z-10"
-                />
-                <Image
-                  src="/images/shape/shape-03.svg"
-                  alt="shape"
-                  width={21.64}
-                  height={21.66}
-                  className="absolute -right-6.5 bottom-0 z-1"
-                />
-                <div className="relative aspect-700/444 w-full">
-                  <Image
-                    className="shadow-solid-l dark:hidden"
-                    src="/images/hero/hero-light.svg"
-                    alt="Hero"
-                    fill
-                  />
-                  <Image
-                    className="shadow-solid-l hidden dark:block"
-                    src="/images/hero/hero-dark.svg"
-                    alt="Hero"
-                    fill
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+      <div className="text-center">
+        <h1 className="text-foreground mx-auto max-w-lg text-4xl font-bold md:max-w-2xl md:text-6xl md:leading-tight">
+          Smart, Secure, Simple Statement Matching
+        </h1>
+        <p className="text-foreground mx-auto mt-4 max-w-lg">
+          From effortless reconciliation to real-time transaction insights,
+          Rekon puts you in control of your financial data like never before
+        </p>
+        <div className="mx-auto mt-6 flex w-fit flex-col items-center sm:flex-row sm:gap-4">
+          <Link href="/signin">
+            <button className="bg-primary hover:bg-primary-accent rounded-full px-8 py-3 font-medium text-black transition-colors">
+              Get Started
+            </button>
+          </Link>
+          <Link href="/signup">
+            <button className="border-primary text-primary hover:bg-primary rounded-full border px-8 py-3 font-medium transition-colors hover:text-black">
+              Sign Up Free
+            </button>
+          </Link>
         </div>
-      </section>
-    </>
+        <Image
+          src="/images/hero-mockup.webp"
+          width={384}
+          height={340}
+          quality={100}
+          sizes="(max-width: 768px) 100vw, 384px"
+          priority={true}
+          unoptimized={true}
+          alt="statement matching mockup"
+          className="relative z-10 mx-auto mt-12 md:mt-16"
+        />
+      </div>
+    </section>
   );
 };
 
