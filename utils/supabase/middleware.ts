@@ -2,6 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function updateSession(request: NextRequest) {
+  console.log("middleware is running");
   let supabaseResponse = NextResponse.next({
     request,
   });
@@ -44,9 +45,6 @@ export async function updateSession(request: NextRequest) {
     "/",
     "/signin",
     "/signup",
-    "/blog",
-    "/docs",
-    "/support",
     "/auth/callback",
     "/auth/auth-code-error",
   ];
