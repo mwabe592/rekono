@@ -75,3 +75,7 @@ export async function updateSession(request: NextRequest) {
 
   return supabaseResponse;
 }
+
+export const config = {
+  matcher: ["/dashboard/:path*", "/((?!_next|api|static|favicon.ico).*)"],
+};
