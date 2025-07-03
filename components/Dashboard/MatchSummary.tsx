@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { MatchResult } from "../types/transaction";
 import { TrendingUp, Target, AlertCircle, DollarSign } from "lucide-react";
+import { MatchResult } from "@/types/transaction";
 
 interface MatchSummaryProps {
   matchResult: MatchResult;
