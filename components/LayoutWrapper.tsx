@@ -12,18 +12,18 @@ interface LayoutWrapperProps {
 
 export default function LayoutWrapper({ children }: LayoutWrapperProps) {
   const pathname = usePathname();
-  const isDashboard = pathname.startsWith("/dashboard");
+  const isHome = pathname === "/";
 
   return (
     <>
-      {!isDashboard && (
+      {isHome && (
         <>
           <Lines />
           <Header />
         </>
       )}
       {children}
-      {!isDashboard && (
+      {isHome && (
         <>
           <Footer />
           <ScrollToTop />

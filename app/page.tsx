@@ -4,14 +4,13 @@ import Logos from "@/components/LandingPage/Logos";
 import Benefits from "@/components/LandingPage/Benefits";
 import Container from "@/components/Common/Container";
 import Section from "@/components/Common/Section";
-import Stats from "@/components/LandingPage/Stats";
 import CTA from "@/components/LandingPage/CTA";
 import FAQ from "@/components/LandingPage/FAQ/FAQ";
 import Pricing from "@/components/LandingPage/Pricing";
 import Testimonial from "@/components/LandingPage/Testimonial/Testimonial";
 
 export const metadata: Metadata = {
-  title: "Rekon",
+  title: "Rekono",
   description:
     "Upload and match transactions between credit card and bank account statements",
 };
