@@ -1,7 +1,6 @@
 "use server";
 
 import { createClient } from "@/utils/supabase/server";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 export type AuthState = {
@@ -56,8 +55,6 @@ export async function signInWithEmail(
 
   const { data: signInData, error } =
     await supabase.auth.signInWithPassword(data);
-  console.log("Sign in error is", error);
-  console.log("Sign in data is", signInData);
 
   if (error) {
     return {
@@ -104,4 +101,16 @@ export async function signInWithGoogle(
   }
 
   return { error: "Could not get provider URL" };
+}
+
+export async function signOut(formData?: FormData): Promise<void> {
+  const supabase = await createClient();
+
+  console.log("signOut server action called");
+
+  const { error } = await supabase.auth.signOut();
+
+  console.log("error from logout is", error);
+
+  redirect("/signin");
 }

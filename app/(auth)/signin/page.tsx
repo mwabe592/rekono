@@ -5,9 +5,10 @@ import {
   signInWithEmail,
   signInWithGoogle,
   type AuthState,
-} from "@/app/auth/actions";
+} from "@/app/(auth)/auth/actions";
+import Image from "next/image";
 
-const Signin = () => {
+export default function SigninPage() {
   const [state, action, isPending] = useActionState(signInWithEmail, null);
   const [googleState, googleAction] = useActionState(signInWithGoogle, null);
 
@@ -16,8 +17,20 @@ const Signin = () => {
       <div className="w-full max-w-md">
         <div className="space-y-8 rounded-2xl border border-gray-100 bg-white p-8 shadow-2xl">
           <div>
+            <div className="mb-4 flex justify-center hover:cursor-pointer">
+              <Link href="/">
+                <Image
+                  src="/images/logo/rekon-high-resolution-logo-transparent.png"
+                  alt="Rekon Logo"
+                  width={120}
+                  height={48}
+                  className="h-12 w-auto"
+                  priority
+                />
+              </Link>
+            </div>
             <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">
-              Welcome
+              Welcome to Rekono
             </h2>
             <p className="mt-3 text-center text-sm text-gray-600">
               Or{" "}
@@ -150,7 +163,7 @@ const Signin = () => {
               <button
                 type="submit"
                 disabled={isPending}
-                className="group bg-primary hover:bg-primary-accent focus:ring-primary relative flex w-full transform justify-center rounded-xl border border-transparent px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:cursor-pointer hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
+                className="group bg-primary hover:bg-primary-accent focus:ring-primary relative flex w-full transform justify-center rounded-xl border border-transparent px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
               >
                 {isPending ? "Signing in..." : "Sign in"}
               </button>
@@ -160,6 +173,4 @@ const Signin = () => {
       </div>
     </div>
   );
-};
-
-export default Signin;
+}

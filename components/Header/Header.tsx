@@ -5,6 +5,7 @@ import { HiOutlineXMark, HiBars3 } from "react-icons/hi2";
 import { FaFingerprint } from "react-icons/fa";
 import Container from "../Common/Container";
 import Image from "next/image";
+import Logo from "../Common/Logo";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,18 +25,7 @@ const Header = () => {
       <Container className="!px-0">
         <nav className="mx-auto flex items-center justify-between bg-white px-5 py-2 shadow-md md:bg-transparent md:py-10 md:shadow-none">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/images/logo/rekon-high-resolution-logo-transparent.png"
-              alt="logo"
-              width={55}
-              height={55}
-              className="w-full dark:hidden"
-            />
-            <span className="manrope text-foreground cursor-pointer text-4xl font-semibold">
-              Rekon
-            </span>
-          </Link>
+          <Logo width={55} height={55} />
 
           {/* Desktop Menu */}
           <ul className="hidden space-x-6 md:flex">
