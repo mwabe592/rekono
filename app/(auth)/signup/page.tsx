@@ -1,13 +1,14 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useActionState } from "react";
 import {
   signInWithGoogle,
   signUpWithEmail,
   type AuthState,
-} from "@/app/auth/actions";
+} from "@/app/(auth)/auth/actions";
 
-const Signup = () => {
+export default function SignupPage() {
   const [state, action, isPending] = useActionState(signUpWithEmail, null);
   const [googleState, googleAction] = useActionState(signInWithGoogle, null);
 
@@ -16,6 +17,18 @@ const Signup = () => {
       <div className="w-full max-w-md">
         <div className="space-y-8 rounded-2xl border border-gray-100 bg-white p-8 shadow-2xl">
           <div>
+            <div className="mb-4 flex justify-center hover:cursor-pointer">
+              <Link href="/">
+                <Image
+                  src="/images/logo/rekon-high-resolution-logo-transparent.png"
+                  alt="Rekon Logo"
+                  width={120}
+                  height={48}
+                  className="h-12 w-auto"
+                  priority
+                />
+              </Link>
+            </div>
             <h2 className="mt-2 text-center text-3xl font-extrabold text-gray-900">
               Create your account
             </h2>
@@ -84,42 +97,6 @@ const Signup = () => {
 
           <form action={action} className="space-y-6">
             <div className="space-y-5">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label
-                    htmlFor="firstName"
-                    className="mb-2 block text-sm font-medium text-gray-700"
-                  >
-                    First name
-                  </label>
-                  <input
-                    id="firstName"
-                    name="firstName"
-                    type="text"
-                    autoComplete="given-name"
-                    required
-                    className="focus:ring-primary focus:border-primary relative block w-full appearance-none rounded-xl border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 focus:z-10 focus:shadow-md focus:ring-2 focus:outline-none sm:text-sm"
-                    placeholder="First name"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="lastName"
-                    className="mb-2 block text-sm font-medium text-gray-700"
-                  >
-                    Last name
-                  </label>
-                  <input
-                    id="lastName"
-                    name="lastName"
-                    type="text"
-                    autoComplete="family-name"
-                    required
-                    className="focus:ring-primary focus:border-primary relative block w-full appearance-none rounded-xl border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-500 shadow-sm transition-all duration-200 focus:z-10 focus:shadow-md focus:ring-2 focus:outline-none sm:text-sm"
-                    placeholder="Last name"
-                  />
-                </div>
-              </div>
               <div>
                 <label
                   htmlFor="email"
@@ -185,6 +162,4 @@ const Signup = () => {
       </div>
     </div>
   );
-};
-
-export default Signup;
+}
