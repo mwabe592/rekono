@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { parseCSV } from "@/utils/csvParser";
-import { matchTransactions } from "@/utils/transactionMatcher";
+import { matchAndTrack } from "@/app/dashboard/actions/match";
 import { Transaction, MatchResult } from "@/types/transaction";
 import ActionButtons from "./ActionButtons";
 import FileSummary from "./FileSummary";
@@ -10,6 +10,7 @@ import FileUploadPanel from "./FileUploadPanel";
 import InstructionText from "./InstructionText";
 import ProgressIndicator from "./ProgressIndicator";
 import ResultsSection from "./ResultsSection";
+import { useUser } from "@/app/context/UserContext";
 
 export default function DashboardClient() {
   const [file1Data, setFile1Data] = useState<Transaction[]>([]);
@@ -18,6 +19,7 @@ export default function DashboardClient() {
   const [file2Name, setFile2Name] = useState<string>("");
   const [matchResult, setMatchResult] = useState<MatchResult | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const user = useUser();
 
   const handleFileUpload = async (file: File, fileNumber: 1 | 2) => {
     setIsProcessing(true);
@@ -38,10 +40,29 @@ export default function DashboardClient() {
     }
   };
 
-  const handleMatch = () => {
-    if (file1Data.length > 0 && file2Data.length > 0) {
-      const result = matchTransactions(file1Data, file2Data);
-      setMatchResult(result);
+  const handleMatch = async () => {
+    if (file1Data.length > 0 && file2Data.length > 0 && user?.id) {
+      setIsProcessing(true);
+      try {
+        const response = await matchAndTrack({
+          file1Data,
+          file2Data,
+          userId: user.id,
+        });
+
+        if (!response.allowed) {
+          alert(response.message || "You have reached your match limit.");
+          setIsProcessing(false);
+          return;
+        }
+
+        setMatchResult(response.result!);
+      } catch (error) {
+        alert("An error occurred while matching transactions.");
+        console.error(error);
+      } finally {
+        setIsProcessing(false);
+      }
     }
   };
 
