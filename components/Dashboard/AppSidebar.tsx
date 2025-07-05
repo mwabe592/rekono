@@ -12,8 +12,8 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { signOut } from "@/app/auth/actions";
 import Image from "next/image";
+import { signOut } from "@/app/(auth)/auth/actions";
 
 // Navigation items
 const items = [
