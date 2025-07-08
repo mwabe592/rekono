@@ -84,8 +84,7 @@ export default function DashboardClient() {
             Simplify Your Statements
           </h1>
           <p className="mx-auto max-w-2xl text-xl text-gray-600">
-            Upload two CSV bank statements to automatically match transactions
-            and highlight unpaired entries
+            Drop in your bank statements and have them matched instantly
           </p>
         </div>
         <ProgressIndicator

@@ -13,19 +13,18 @@ interface IFAQ {
 const FAQ: React.FC = () => {
   const faqs: IFAQ[] = [
     {
-      question: "Is Rekon secure?",
-      answer:
-        "Absolutely. We use bank-level encryption to protect your data and never store your login information. Plus, our secure file upload system adds an extra layer of security.",
+      question: "Is Rekono secure?",
+      answer: "Absolutely, none of your bank data is stored on our servers.",
     },
     {
-      question: "Can I use Rekon on multiple devices?",
+      question: "Can I use Rekono on multiple devices?",
       answer:
-        "Absolutely! Your Rekon account syncs seamlessly across all your devices - smartphone, tablet, and computer.",
+        "Absolutely! Your Rekono account syncs seamlessly across all your devices - smartphone, tablet, and computer.",
     },
     {
       question: "Can I upload different file formats?",
       answer:
-        "Yes! Rekon supports CSV files from most financial institutions and accounting software. Simply upload your files through our secure portal to start matching.",
+        "Rekono currently supports CSV files from most financial institutions and accounting software. We are working on supporting more file formats and integrations. Simply upload your files through our secure portal to start matching.",
     },
     {
       question:
@@ -36,7 +35,7 @@ const FAQ: React.FC = () => {
     {
       question: "What if I need help using the app?",
       answer:
-        "Our dedicated support team is available 24/7 via chat or email. Plus, we offer extensive in-app tutorials and a comprehensive knowledge base to help you make the most of Rekon.",
+        "Our team is available via email to help you make the most of Rekono.",
     },
   ];
 
@@ -61,10 +60,10 @@ const FAQ: React.FC = () => {
               Ask us anything!
             </p>
             <a
-              href="mailto:help@rekon.com"
+              href="mailto:help@o.app"
               className="text-primary mt-3 block text-center text-xl font-semibold hover:underline lg:text-left lg:text-4xl"
             >
-              help@rekon.com
+              help@rekono.app
             </a>
           </div>
 

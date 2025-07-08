@@ -21,7 +21,7 @@ interface TopNavProps {
 
 export function TopNav({
   title = "Home",
-  user = { name: "My account", email: "user@example.com" },
+  user = { name: "John Smith", email: "user@example.com" },
 }: TopNavProps) {
   return (
     <header className="bg-background flex h-16 items-center justify-between border-b px-6">

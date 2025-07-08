@@ -134,8 +134,8 @@ const BenefitSection: React.FC<BenefitSectionProps> = ({
             <Image
               src={imageSrc}
               alt={title}
-              width={384}
-              height={762}
+              width={1200}
+              height={1200}
               quality={100}
               className="lg:ml-0"
             />
@@ -171,34 +171,9 @@ const benefits: Benefit[] = [
         icon: <FiZap size={26} />,
       },
     ],
-    imageSrc: "/images/mockup-1.webp",
+    imageSrc: "/images/mockups/mockup-2.png",
   },
-  {
-    title: "Secure & Private Processing",
-    description:
-      "Your financial data never leaves your device. Process statements locally with bank-grade security measures.",
-    bullets: [
-      {
-        title: "Local Processing",
-        description:
-          "All data processing happens on your device - no cloud uploads or third-party access.",
-        icon: <FiLock size={26} />,
-      },
-      {
-        title: "No Data Storage",
-        description:
-          "We don't store, transmit, or access your financial information in any way.",
-        icon: <FiShield size={26} />,
-      },
-      {
-        title: "Offline Capability",
-        description:
-          "Work completely offline - no internet connection required for statement processing.",
-        icon: <FiUser size={26} />,
-      },
-    ],
-    imageSrc: "/images/mockup-2.webp",
-  },
+
   {
     title: "Comprehensive Reporting",
     description:
@@ -223,7 +198,7 @@ const benefits: Benefit[] = [
         icon: <FiPieChart size={26} />,
       },
     ],
-    imageSrc: "/images/mockup-1.webp",
+    imageSrc: "/images/mockups/141shots_so.png",
   },
 ];
 
