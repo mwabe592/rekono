@@ -1,14 +1,14 @@
 "use client";
-import React from "react";
 import Link from "next/link";
+import React from "react";
+import { ArrowRight } from "lucide-react";
 
 const CTA: React.FC = () => {
   const ctaDetails = {
-    heading: "Join Over 1 Million Users To Transform Your Reconciliation",
+    heading: "Reconcile in seconds. No spreadsheets required.",
+
     subheading:
-      "Your journey to accurate financial reconciliation starts here. Download Rekon today and take the first step towards a brighter financial future!",
-    appStoreUrl: "#",
-    googlePlayUrl: "#",
+      "Say goodbye to messy spreadsheets. Get started with Rekono now",
   };
   return (
     <section id="cta" className="mt-10 mb-5 lg:my-20">
@@ -25,13 +25,14 @@ const CTA: React.FC = () => {
 
             <p className="mx-auto max-w-xl md:px-5">{ctaDetails.subheading}</p>
 
-            <div className="mt-8 flex flex-col items-center sm:flex-row sm:gap-4">
-              <button className="bg-primary hover:bg-primary-accent mb-4 rounded-full px-8 py-3 font-medium text-white transition-colors sm:mb-0">
+            <div className="mt-8">
+              <Link
+                href="/signin"
+                className="bg-primary hover:bg-primary-accent mb-4 flex w-full items-center justify-center gap-2 rounded-full px-15 py-3 font-medium text-white transition-colors sm:w-auto"
+              >
                 Get Started
-              </button>
-              <button className="rounded-full bg-white px-8 py-3 font-medium text-black transition-colors hover:bg-gray-100">
-                Learn More
-              </button>
+                <ArrowRight size={20} />
+              </Link>
             </div>
           </div>
         </div>

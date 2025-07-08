@@ -1,10 +1,8 @@
 export const siteDetails = {
-  siteName: "Rekon",
-  siteUrl: "https://rekon.com/",
+  siteName: "Rekono",
+  siteUrl: "https://rekono.app/",
   metadata: {
-    title: "Rekon - Smart Transaction Reconciliation",
-    description:
-      "Rekon empowers businesses with cutting-edge transaction reconciliation technology solutions to drive success and efficiency.",
+    title: "Rekono",
   },
   language: "en-us",
   locale: "en-US",

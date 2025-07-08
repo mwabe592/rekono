@@ -8,6 +8,7 @@ import CTA from "@/components/LandingPage/CTA";
 import FAQ from "@/components/LandingPage/FAQ/FAQ";
 import Pricing from "@/components/LandingPage/Pricing";
 import Testimonial from "@/components/LandingPage/Testimonial/Testimonial";
+import Header from "@/components/Header/Header";
 
 export const metadata: Metadata = {
   title: "Rekono",
@@ -19,27 +20,21 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Logos />
       <Container>
-        <Benefits />
-
         <Section
-          id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
+          id="Features"
+          title="Features"
+          description="See how Rekono can help you streamline your reconciliation process."
         >
-          <Pricing />
+          <Benefits />
         </Section>
-
         <Section
-          id="testimonials"
-          title="What Our Clients Say"
-          description="Hear from those who have streamlined their reconciliation process."
+          id="FAQs"
+          title="Frequently Asked Questions"
+          description="Answers to common questions about Rekono."
         >
-          <Testimonial />
+          <FAQ />
         </Section>
-
-        <FAQ />
 
         <CTA />
       </Container>

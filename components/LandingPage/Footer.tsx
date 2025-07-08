@@ -25,9 +25,6 @@ const Footer: React.FC = () => {
               {siteDetails.siteName}
             </h3>
           </Link>
-          <p className="text-foreground-accent mt-3.5">
-            {footerDetails.subheading}
-          </p>
         </div>
         <div>
           <h4 className="mb-4 text-lg font-semibold">Quick Links</h4>
@@ -41,7 +38,8 @@ const Footer: React.FC = () => {
             ))}
           </ul>
         </div>
-        <div>
+
+        {/* <div>
           <h4 className="mb-4 text-lg font-semibold">Contact Us</h4>
 
           {footerDetails.email && (
@@ -81,7 +79,7 @@ const Footer: React.FC = () => {
               })}
             </div>
           )}
-        </div>
+        </div> */}
       </div>
       <div className="text-foreground-accent mt-8 px-6 md:text-center">
         <p>

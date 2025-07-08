@@ -16,12 +16,8 @@ export default function LayoutWrapper({ children }: LayoutWrapperProps) {
 
   return (
     <>
-      {isHome && (
-        <>
-          <Lines />
-          <Header />
-        </>
-      )}
+      <Header />
+      {isHome && <Lines />}
       {children}
       {isHome && (
         <>

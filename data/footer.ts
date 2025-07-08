@@ -16,14 +16,12 @@ export interface ISocials {
 }
 
 export const footerDetails: {
-  subheading: string;
   quickLinks: IMenuItem[];
   email: string;
   telephone: string;
   socials: ISocials;
 } = {
-  subheading:
-    "Empowering businesses with cutting-edge transaction reconciliation technology solutions.",
+
   quickLinks: [
     {
       text: "Features",
