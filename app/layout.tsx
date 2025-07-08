@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import ToasterContext from "./context/ToastContext";
-import LayoutWrapper from "@/components/LayoutWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +22,7 @@ export default function RootLayout({
       <body className={`dark:bg-black ${inter.className}`}>
         <Providers>
           <ToasterContext />
-          <LayoutWrapper>{children}</LayoutWrapper>
+          {children}
         </Providers>
       </body>
     </html>

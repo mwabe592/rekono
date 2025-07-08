@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { HiOutlineXMark, HiBars3 } from "react-icons/hi2";
 import { FaFingerprint } from "react-icons/fa";
@@ -9,21 +9,46 @@ import Logo from "../Common/Logo";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY <= 0) {
+        setShowHeader(true);
+      } else if (currentScrollY > lastScrollY) {
+        setShowHeader(false); // scrolling down
+      } else {
+        setShowHeader(true); // scrolling up
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   const menuItems = [
     { text: "Features", url: "#features" },
-    { text: "Pricing", url: "#pricing" },
+    { text: "Pricing", url: "/pricing" },
     { text: "Testimonials", url: "#testimonials" },
   ];
 
   return (
-    <header className="fixed top-0 right-0 left-0 z-50 mx-auto w-full bg-transparent md:absolute">
+    <header
+      className={`sticky top-0 z-50 w-full bg-white transition-all duration-300 ${
+        showHeader
+          ? "translate-y-0 opacity-100"
+          : "pointer-events-none -translate-y-full opacity-0"
+      }`}
+    >
       <Container className="!px-0">
-        <nav className="mx-auto flex items-center justify-between bg-white px-5 py-2 shadow-md md:bg-transparent md:py-10 md:shadow-none">
+        <nav className="mx-auto flex items-center justify-between bg-transparent px-5 py-5 shadow-md md:bg-transparent md:py-8 md:shadow-none">
           {/* Logo */}
           <Logo width={55} height={55} />
 
