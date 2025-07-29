@@ -24,17 +24,17 @@ const Hero: React.FC = () => {
           From effortless reconciliation to real-time transaction insights,
           Rekono puts you in control of your financial data like never before
         </p>
-        <div className="mx-auto mt-6 flex w-fit flex-col items-center sm:flex-row sm:gap-4">
+        <div className="mx-auto mt-6 flex w-fit flex-col items-center gap-4 sm:flex-row sm:gap-6">
           <Link href="/signin">
             <button className="bg-primary hover:bg-primary-accent rounded-full px-8 py-3 font-medium text-white transition-colors">
               Get Started
             </button>
           </Link>
-          <Link href="/signup">
+          {/* <Link href="/signup">
             <button className="border-primary text-primary hover:bg-primary rounded-full border px-8 py-3 font-medium transition-colors hover:text-white">
               Sign Up Free
             </button>
-          </Link>
+          </Link> */}
         </div>
         <Image
           src="/images/mockups/522shots_so copy.png"

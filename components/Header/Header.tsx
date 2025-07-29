@@ -34,9 +34,9 @@ const Header = () => {
   }, [lastScrollY]);
 
   const menuItems = [
-    { text: "Features", url: "#features" },
-    { text: "Pricing", url: "/pricing" },
-    { text: "Testimonials", url: "#testimonials" },
+    // { text: "Features", url: "#features" },
+    // { text: "Pricing", url: "/pricing" },
+    // { text: "Testimonials", url: "#testimonials" },
   ];
 
   return (
@@ -54,7 +54,7 @@ const Header = () => {
 
           {/* Desktop Menu */}
           <ul className="hidden space-x-6 md:flex">
-            {menuItems.map((item) => (
+            {/* {menuItems.map((item) => (
               <li key={item.text}>
                 <Link
                   href={item.url}
@@ -63,7 +63,7 @@ const Header = () => {
                   {item.text}
                 </Link>
               </li>
-            ))}
+            ))} */}
             <li>
               <Link
                 href="/signin"
@@ -87,7 +87,7 @@ const Header = () => {
             <button
               onClick={toggleMenu}
               type="button"
-              className="bg-primary flex h-10 w-10 items-center justify-center rounded-full text-black focus:outline-none"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-black focus:outline-none"
               aria-controls="mobile-menu"
               aria-expanded={isOpen}
             >
@@ -106,7 +106,7 @@ const Header = () => {
       {isOpen && (
         <div id="mobile-menu" className="bg-white shadow-lg md:hidden">
           <ul className="flex flex-col space-y-4 px-6 pt-1 pb-6">
-            {menuItems.map((item) => (
+            {/* {menuItems.map((item) => (
               <li key={item.text}>
                 <Link
                   href={item.url}
@@ -116,11 +116,11 @@ const Header = () => {
                   {item.text}
                 </Link>
               </li>
-            ))}
+            ))} */}
             <li>
               <Link
                 href="/signin"
-                className="bg-primary hover:bg-primary-accent block w-fit rounded-full px-5 py-2 text-black"
+                className="bg-primary hover:bg-primary-accent block w-fit rounded-full px-5 py-2 text-white"
                 onClick={toggleMenu}
               >
                 Sign In
@@ -129,7 +129,7 @@ const Header = () => {
             <li>
               <Link
                 href="/signup"
-                className="border-primary text-primary hover:bg-primary block w-fit rounded-full border px-5 py-2 hover:text-black"
+                className="border-primary text-primary hover:bg-primary block w-fit rounded-full border px-5 py-2 hover:text-white"
                 onClick={toggleMenu}
               >
                 Sign Up

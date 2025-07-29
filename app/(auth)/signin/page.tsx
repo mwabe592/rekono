@@ -54,7 +54,7 @@ export default function SigninPage() {
           <form action={googleAction} className="space-y-6">
             <button
               type="submit"
-              className="group focus:ring-primary relative flex w-full justify-center rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm transition-all duration-200 hover:bg-gray-50 hover:shadow-md focus:ring-2 focus:ring-offset-2 focus:outline-none"
+              className="group focus:ring-primary relative flex w-full justify-center rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-700 shadow-sm transition-all duration-200 hover:cursor-pointer hover:bg-gray-50 hover:shadow-md focus:ring-2 focus:ring-offset-2 focus:outline-none"
             >
               <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                 <svg
@@ -163,7 +163,7 @@ export default function SigninPage() {
               <button
                 type="submit"
                 disabled={isPending}
-                className="group bg-primary hover:bg-primary-accent focus:ring-primary relative flex w-full transform justify-center rounded-xl border border-transparent px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
+                className="group bg-primary hover:bg-primary-accent focus:ring-primary relative flex w-full transform justify-center rounded-xl border border-transparent px-4 py-3 text-sm font-medium text-white shadow-lg transition-all duration-200 hover:scale-[1.02] hover:cursor-pointer hover:shadow-xl focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:opacity-50"
               >
                 {isPending ? "Signing in..." : "Sign in"}
               </button>

@@ -21,20 +21,19 @@ export const footerDetails: {
   telephone: string;
   socials: ISocials;
 } = {
-
   quickLinks: [
     {
       text: "Features",
       url: "#features",
     },
-    {
-      text: "Pricing",
-      url: "#pricing",
-    },
-    {
-      text: "Testimonials",
-      url: "#testimonials",
-    },
+    // {
+    //   text: "Pricing",
+    //   url: "#pricing",
+    // },
+    // {
+    //   text: "Testimonials",
+    //   url: "#testimonials",
+    // },
   ],
   email: "address@yoursite.com",
   telephone: "+1 (123) 456-7890",
