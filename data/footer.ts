@@ -21,19 +21,14 @@ export const footerDetails: {
   telephone: string;
   socials: ISocials;
 } = {
-
   quickLinks: [
     {
-      text: "Features",
-      url: "#features",
+      text: "Terms of Service",
+      url: "/terms",
     },
     {
-      text: "Pricing",
-      url: "#pricing",
-    },
-    {
-      text: "Testimonials",
-      url: "#testimonials",
+      text: "Privacy Policy",
+      url: "/privacy",
     },
   ],
   email: "address@yoursite.com",
