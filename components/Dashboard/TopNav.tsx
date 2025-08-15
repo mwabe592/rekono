@@ -1,3 +1,5 @@
+"use client";
+
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { signOut } from "@/app/(auth)/auth/actions";
 
 interface TopNavProps {
   title?: string;
@@ -67,7 +70,10 @@ export function TopNav({
             <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuItem>Billing</DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-red-600">
+            <DropdownMenuItem
+              className="cursor-pointer text-red-600"
+              onClick={() => signOut()}
+            >
               Log out
             </DropdownMenuItem>
           </DropdownMenuContent>
