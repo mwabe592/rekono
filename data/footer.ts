@@ -23,17 +23,13 @@ export const footerDetails: {
 } = {
   quickLinks: [
     {
-      text: "Features",
-      url: "#features",
+      text: "Terms of Service",
+      url: "/terms",
     },
-    // {
-    //   text: "Pricing",
-    //   url: "#pricing",
-    // },
-    // {
-    //   text: "Testimonials",
-    //   url: "#testimonials",
-    // },
+    {
+      text: "Privacy Policy",
+      url: "/privacy",
+    },
   ],
   email: "address@yoursite.com",
   telephone: "+1 (123) 456-7890",
