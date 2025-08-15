@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Rekono",
   description:
     "Upload and match transactions between credit card and bank account statements",
-};
+}; 
 
 export default function Home() {
   return (

@@ -16,8 +16,6 @@ export default async function DashboardLayout({
 }) {
   const user = await getUser(); // fetches user on the server
 
-  console.log("user info is:", user);
-
   return (
     <UserProvider user={user}>
       <SidebarProvider>
