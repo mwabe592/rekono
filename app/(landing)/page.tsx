@@ -6,9 +6,6 @@ import Container from "@/components/Common/Container";
 import Section from "@/components/Common/Section";
 import CTA from "@/components/LandingPage/CTA";
 import FAQ from "@/components/LandingPage/FAQ/FAQ";
-import Pricing from "@/components/LandingPage/Pricing";
-import Testimonial from "@/components/LandingPage/Testimonial/Testimonial";
-import Header from "@/components/Header/Header";
 
 export const metadata: Metadata = {
   title: "Rekono",

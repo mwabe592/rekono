@@ -10,6 +10,6 @@ export default async function getUser() {
     console.error("Error fetching user:", error);
     return null;
   }
-
+ 
   return data.user;
 }
