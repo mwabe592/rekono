@@ -10,16 +10,14 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import getUser from "@/utils/getUser";
+import { signOut } from "@/app/(auth)/auth/actions";
 
 interface TopNavProps {
   title?: string;
 }
 
-const user = await getUser();
-
-console.log("user info is:", user);
-
-export function TopNav({ title = "Home" }: TopNavProps) {
+export async function TopNav({ title = "Home" }: TopNavProps) {
+  const user = await getUser();
   // Extract user details from the database user object
   const userName =
     user?.user_metadata?.full_name || user?.user_metadata?.name || "User";
