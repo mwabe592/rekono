@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/components/Providers";
 import ToasterContext from "./context/ToastContext";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`dark:bg-black ${inter.className}`}>
+        <PostHogProvider>
+
         <Providers>
           <ToasterContext />
           {children}
         </Providers>
+        </PostHogProvider>
       </body>
     </html>
   );
