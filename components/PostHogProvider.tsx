@@ -10,7 +10,13 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       api_host: "/ingest",
       ui_host: "https://us.posthog.com",
       defaults: "2025-05-24",
+      capture_pageview: true,
+      capture_pageleave: true,
       capture_exceptions: true,
+      session_recording: {
+        maskAllInputs: true,
+        maskInputOptions: { password: true },
+      },
       debug: process.env.NODE_ENV === "development",
     });
   }, []);
