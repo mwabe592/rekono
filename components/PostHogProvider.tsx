@@ -6,13 +6,13 @@ import { useEffect } from "react";
 
 export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    if (process.env.NEXT_PUBLIC_POSTHOG_KEY) {
-      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+    if (!process.env.NEXT_PUBLIC_POSTHOG_KEY) {
+      posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
         api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
         defaults: "2025-05-24",
+        capture_exceptions: true,
         capture_pageview: true,
         capture_pageleave: true,
-        capture_exceptions: true,
         session_recording: {
           maskAllInputs: true,
         },
